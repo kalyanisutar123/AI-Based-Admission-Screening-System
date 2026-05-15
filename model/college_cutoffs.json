@@ -1,0 +1,141 @@
+[
+  {
+    "name": "IIT Bombay",
+    "courses": [
+      "Artificial Intelligence and Machine Learning",
+      "Computer Science"
+    ],
+    "cutoff": 98
+  },
+  {
+    "name": "COEP Pune",
+    "courses": [
+      "Computer Science",
+      "Artificial Intelligence and Machine Learning",
+      "Mechanical"
+    ],
+    "cutoff": 96
+  },
+  {
+    "name": "PICT Pune",
+    "courses": [
+      "Computer Science",
+      "Artificial Intelligence and Machine Learning",
+      "IT"
+    ],
+    "cutoff": 91
+  },
+  {
+    "name": "Shivaji University Kolhapur",
+    "courses": [
+      "Computer Science",
+      "IT"
+    ],
+    "cutoff": 88
+  },
+  {
+    "name": "Walchand College of Engineering, Sangli",
+    "courses": [
+      "Computer Science",
+      "IT",
+      "Electronics"
+    ],
+    "cutoff": 86
+  },
+  {
+    "name": "Rajarambapu Institute of Technology",
+    "courses": [
+      "Computer Science",
+      "Artificial Intelligence and Machine Learning",
+      "Electronics"
+    ],
+    "cutoff": 86
+  },
+  {
+    "name": "KIT College of Engineering, Kolhapur",
+    "courses": [
+      "Computer Science",
+      "IT"
+    ],
+    "cutoff": 84
+  },
+  {
+    "name": "D Y Patil College of Engineering and Technology",
+    "courses": [
+      "Computer Science",
+      "Electronics"
+    ],
+    "cutoff": 82
+  },
+  {
+    "name": "D.K.T.E. Society's Textile and Engineering Institute",
+    "courses": [
+      "Computer Science",
+      "Mechanical"
+    ],
+    "cutoff": 81
+  },
+  {
+    "name": "AITRC, Vita",
+    "courses": [
+      "Computer Science",
+      "Artificial Intelligence and Machine Learning"
+    ],
+    "cutoff": 79
+  },
+  {
+    "name": "Bharati Vidyapeeth's College of Engineering",
+    "courses": [
+      "Computer Science",
+      "Mechanical"
+    ],
+    "cutoff": 78
+  },
+  {
+    "name": "Ashokrao Mane Group of Institutions",
+    "courses": [
+      "Computer Science",
+      "Artificial Intelligence and Machine Learning"
+    ],
+    "cutoff": 75
+  },
+  {
+    "name": "PVPIT, Tasgaon",
+    "courses": [
+      "Artificial Intelligence and Machine Learning",
+      "Civil"
+    ],
+    "cutoff": 74
+  },
+  {
+    "name": "Annasaheb Dange College of Engineering and Technology",
+    "courses": [
+      "Computer Science",
+      "Electronics"
+    ],
+    "cutoff": 73
+  },
+  {
+    "name": "Arvind Gavali College of Engineering",
+    "courses": [
+      "Computer Science",
+      "General"
+    ],
+    "cutoff": 72
+  },
+  {
+    "name": "Yashoda Technical Campus",
+    "courses": [
+      "Computer Science",
+      "General"
+    ],
+    "cutoff": 69
+  },
+  {
+    "name": "Other",
+    "courses": [
+      "General"
+    ],
+    "cutoff": 66
+  }
+]

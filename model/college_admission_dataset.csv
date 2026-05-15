@@ -1,0 +1,201 @@
+id,name,age,gender,marks_10,marks_12,entrance_score,preferred_course,composite_score,Eligible,assigned_college,assigned_course,college_cutoff
+1,Kalyani Shah,18,Female,57.05,83.45,74.14,General,73.59,Yes,"AITRC, Vita",Artificial Intelligence and Machine Learning,79
+2,Sanjana Sharma,17,Female,56.81,69.82,22.12,Mechanical,49.87,No,Not Eligible,Mechanical,0
+3,Komal Bhosale,20,Female,56.9,74.77,84.75,Artificial Intelligence and Machine Learning,73.8,Yes,Arvind Gavali College of Engineering,Electronics,71
+4,Komal Jadhav,19,Female,60.01,52.7,81.08,Computer Science,64.46,Yes,Yashoda Technical Campus,Computer Science,69
+5,Yash Shinde,21,Male,59.28,42.56,56.75,Computer Science,51.71,Yes,Other,General,66
+6,Neha Desai,21,Female,60.83,77.09,90.84,IT,77.84,Yes,Annasaheb Dange College of Engineering and Technology,Computer Science,73
+7,Arjun Patil,22,Male,57.31,57.07,26.38,Mechanical,46.39,No,Not Eligible,Mechanical,0
+8,Neha Shah,20,Female,79.33,61.53,49.61,Mechanical,61.81,Yes,Dadasaheb Mokashi College of Food Technology,Mechanical,68
+9,Aditi Desai,21,Female,79.29,71.51,39.58,MBA,62.28,Yes,Dadasaheb Mokashi College of Food Technology,Civil,67
+10,Ankit Mehta,22,Male,62.51,85.33,24.48,Artificial Intelligence and Machine Learning,58.33,Yes,Other,General,66
+11,Neha Shah,17,Female,56.39,95.63,90.11,IT,83.89,Yes,Walchand Sangli,Computer Science,86
+12,Neha Gaikwad,18,Female,59.3,54.55,64.91,Civil,59.36,Yes,Other,General,66
+13,Ishita Naik,20,Female,64.55,98.84,31.07,MBA,66.55,Yes,Yashoda Technical Campus,Computer Science,69
+14,Rajani Kulkarni,22,Female,53.64,80.15,67.71,Biotechnology,69.17,Yes,Dadasaheb Mokashi College of Food Technology,Civil,67
+15,Divya Salunke,19,Female,97.44,90.79,20.92,Computer Science,68.0,Yes,Other,General,66
+16,Pallavi Pawar,17,Female,60.85,49.33,20.26,Civil,42.04,No,Not Eligible,Civil,0
+17,Pallavi Rao,21,Female,94.28,91.36,43.88,General,75.47,Yes,Annasaheb Dange College of Engineering and Technology,Computer Science,73
+18,Yash Rao,21,Male,96.49,94.42,93.48,IT,94.61,Yes,COEP Pune,Computer Engineering,95
+19,Yash Gupta,18,Male,48.13,91.8,95.76,Computer Science,82.27,Yes,D Y Patil College of Engineering and Technology,Electronics,81
+20,Arjun Bhosale,18,Male,51.93,68.04,63.98,Civil,62.59,Yes,Other,General,66
+21,Ishita Nair,21,Female,85.78,80.7,77.04,Biotechnology,80.69,Yes,D Y Patil College of Engineering and Technology,Computer Science,82
+22,Divya Salunke,20,Female,51.53,53.26,47.05,General,50.65,Yes,Other,General,66
+23,Nikhil Sharma,17,Male,83.22,43.47,25.39,Artificial Intelligence and Machine Learning,47.08,No,Not Eligible,Artificial Intelligence and Machine Learning,0
+24,Pranali Salunke,18,Female,60.04,68.64,63.14,MBA,64.56,Yes,Yashoda Technical Campus,General,64
+25,Ishita Nair,17,Female,50.23,65.43,53.89,MBA,57.59,Yes,Other,General,66
+26,Sanjana Joshi,17,Female,66.74,60.02,88.93,Mechanical,71.82,Yes,Bharati Vidyapeeth's College of Engineering,Computer Science,78
+27,Raj Kulkarni,20,Male,54.91,67.3,89.96,Computer Science,72.13,Yes,"PVPIT, Tasgaon",Artificial Intelligence and Machine Learning,74
+28,Aisha Joshi,17,Female,80.22,71.89,21.18,Computer Science,56.22,Yes,Other,General,66
+29,Pooja Rao,20,Female,71.22,52.61,52.08,Artificial Intelligence and Machine Learning,57.08,Yes,Other,General,66
+30,Aarav Deshpande,19,Male,95.03,86.32,42.82,General,73.27,Yes,Annasaheb Dange College of Engineering and Technology,Electronics,72
+31,Vaibhavi Nair,19,Female,56.76,43.45,78.86,Artificial Intelligence and Machine Learning,59.17,Yes,Other,General,66
+32,Sanjana Patil,21,Female,70.75,94.24,62.49,Artificial Intelligence and Machine Learning,77.25,Yes,"PVPIT, Tasgaon",Civil,73
+33,Karan Desai,21,Male,48.67,90.85,52.3,Mechanical,66.81,Yes,Other,General,66
+34,Tanvi Desai,20,Female,80.5,73.35,45.31,Civil,65.32,Yes,Yashoda Technical Campus,General,64
+35,Kavya Mehta,19,Female,66.37,79.63,44.0,IT,63.84,Yes,Yashoda Technical Campus,Computer Science,69
+36,Gaurav Naik,17,Male,48.96,52.58,41.22,IT,47.7,No,Not Eligible,IT,0
+37,Pooja Shinde,19,Female,53.52,89.19,76.28,General,75.75,Yes,Walchand Sangli,Electronics,78
+38,Aisha Gupta,22,Female,50.59,91.81,41.16,Computer Science,63.78,Yes,Other,General,66
+39,Suraj Wagh,18,Male,83.75,52.01,70.74,Civil,66.5,Yes,Other,General,66
+40,Rohan Desai,22,Male,67.87,56.32,20.28,Electronics,46.59,No,Not Eligible,Electronics,0
+41,Ananya Rao,22,Female,68.86,81.63,64.87,Computer Science,72.57,Yes,"AITRC, Vita",Artificial Intelligence and Machine Learning,79
+42,Komal Kulkarni,21,Female,46.95,61.78,64.2,Biotechnology,58.92,Yes,Other,General,66
+43,Suraj Shinde,17,Male,93.54,52.39,39.96,Computer Science,58.33,Yes,Other,General,66
+44,Ankit Jadhav,21,Male,85.47,94.62,38.94,Electronics,72.84,Yes,Arvind Gavali College of Engineering,Electronics,71
+45,Ishita Sharma,18,Female,84.77,59.6,94.47,Mechanical,78.1,Yes,Bharati Vidyapeeth's College of Engineering,Mechanical,77
+46,Vivek Deshpande,17,Male,91.36,53.12,85.33,MBA,73.95,Yes,Ashokrao Mane Group of Institutions,Computer Science,75
+47,Nikhil Mehta,17,Male,80.64,63.51,42.29,Computer Science,60.37,Yes,Dadasaheb Mokashi College of Food Technology,Mechanical,68
+48,Tejas Deshpande,22,Male,97.98,71.64,95.14,Computer Science,86.45,Yes,Walchand Sangli,IT,85
+49,Amit Patil,17,Male,77.21,60.4,82.91,Biotechnology,72.48,Yes,Annasaheb Dange College of Engineering and Technology,Computer Science,73
+50,Rajani Deshpande,21,Other,55.26,42.62,54.88,General,50.07,Yes,Other,General,66
+51,Aisha Nair,19,Female,68.29,95.98,93.66,IT,88.25,Yes,D Y Patil College of Engineering and Technology,Computer Science,82
+52,Sonal Gupta,21,Female,61.7,64.1,52.19,Civil,59.33,Yes,Other,General,66
+53,Sneha Jadhav,22,Female,95.78,79.96,92.22,Civil,88.21,Yes,Rajarambapu Institute of Technology,Artificial Intelligence and Machine Learning,85
+54,Aarav Gupta,19,Male,56.35,86.36,68.53,IT,72.62,Yes,"PVPIT, Tasgaon",Artificial Intelligence and Machine Learning,74
+55,Rahul Salunke,20,Male,87.86,96.63,78.88,Computer Science,88.22,Yes,Walchand Sangli,IT,85
+56,Gaurav Pawar,17,Male,89.19,84.32,73.82,Mechanical,81.86,Yes,D.K.T.E. Society's Textile and Engineering Institute,Computer Science,81
+57,Aarav Patil,18,Male,98.13,76.07,81.48,MBA,83.48,Yes,Rajarambapu Institute of Technology,Artificial Intelligence and Machine Learning,85
+58,Meera Nair,22,Female,82.6,69.17,39.52,Artificial Intelligence and Machine Learning,62.15,Yes,Yashoda Technical Campus,Computer Science,69
+59,Pooja Rao,22,Female,72.97,42.96,39.94,Computer Science,49.41,No,Not Eligible,Computer Science,0
+60,Raj Salunke,21,Male,77.15,96.05,91.31,General,89.67,Yes,Rajarambapu Institute of Technology,Artificial Intelligence and Machine Learning,85
+61,Aisha Gaikwad,18,Female,85.16,68.01,40.74,Mechanical,62.75,Yes,Dadasaheb Mokashi College of Food Technology,Mechanical,68
+62,Nisha More,22,Female,57.92,65.95,77.08,Mechanical,67.84,Yes,Dadasaheb Mokashi College of Food Technology,Mechanical,68
+63,Ankit Desai,18,Male,53.14,62.6,32.22,Mechanical,49.6,No,Not Eligible,Mechanical,0
+64,Dev Pawar,21,Male,70.16,43.67,86.63,Biotechnology,65.33,Yes,Other,General,66
+65,Kalyani Naik,20,Female,70.76,95.62,43.89,Biotechnology,71.3,Yes,Ashokrao Mane Group of Institutions,Artificial Intelligence and Machine Learning,74
+66,Ankit Wagh,18,Male,71.36,56.1,58.85,Biotechnology,60.88,Yes,Dadasaheb Mokashi College of Food Technology,Mechanical,68
+67,Neha Rao,20,Female,94.66,97.86,62.73,Biotechnology,84.76,Yes,"KIT College of Engineering, Kolhapur",Computer Science,85
+68,Kalyani Desai,22,Female,68.15,91.14,34.54,Civil,65.58,Yes,Dadasaheb Mokashi College of Food Technology,Civil,67
+69,Raj Pawar,19,Male,86.11,62.37,80.16,Biotechnology,74.53,Yes,Bharati Vidyapeeth's College of Engineering,Mechanical,77
+70,Swati Sharma,22,Female,74.13,98.99,48.0,Computer Science,74.93,Yes,Arvind Gavali College of Engineering,Electronics,71
+71,Sanjana Sharma,18,Female,55.77,41.2,32.19,Electronics,41.69,No,Not Eligible,Electronics,0
+72,Vivek Naik,18,Male,70.11,55.12,49.51,Computer Science,56.9,Yes,Other,General,66
+73,Priya Gupta,17,Female,76.25,94.8,66.06,Biotechnology,80.1,Yes,Rajarambapu Institute of Technology,Artificial Intelligence and Machine Learning,85
+74,Sneha Desai,21,Female,82.29,77.01,28.15,Civil,61.23,Yes,Other,General,66
+75,Meera Patil,19,Female,73.77,79.03,25.52,IT,58.99,Yes,Other,General,66
+76,Dev More,17,Male,68.41,61.37,91.33,MBA,73.62,Yes,Arvind Gavali College of Engineering,Computer Science,72
+77,Karan Salunke,22,Male,59.58,87.68,63.05,MBA,72.03,Yes,"PVPIT, Tasgaon",Artificial Intelligence and Machine Learning,74
+78,Vishal Shah,19,Male,90.99,89.01,26.93,MBA,67.78,Yes,Yashoda Technical Campus,General,64
+79,Meera Wagh,22,Female,65.47,41.69,88.08,Electronics,63.87,Yes,Dadasaheb Mokashi College of Food Technology,Civil,67
+80,Amit Pawar,19,Male,92.54,81.37,42.1,Artificial Intelligence and Machine Learning,70.42,Yes,"PVPIT, Tasgaon",Civil,73
+81,Pranali Mehta,22,Female,66.95,72.76,39.23,MBA,59.57,Yes,Other,General,66
+82,Swati Gaikwad,17,Female,50.02,53.07,75.34,Civil,60.1,Yes,Other,General,66
+83,Ankit Salunke,19,Male,67.98,84.01,46.46,MBA,66.86,Yes,Dadasaheb Mokashi College of Food Technology,Mechanical,68
+84,Nikhil Joshi,22,Male,55.4,47.05,62.87,Electronics,54.67,Yes,Other,General,66
+85,Mohit Shah,22,Male,76.84,84.85,67.74,Computer Science,76.86,Yes,Bharati Vidyapeeth's College of Engineering,Computer Science,78
+86,Yash Rao,19,Male,45.76,71.51,41.94,Artificial Intelligence and Machine Learning,54.72,Yes,Other,General,66
+87,Komal Kulkarni,22,Female,91.9,68.96,89.82,Civil,82.0,Yes,Rajarambapu Institute of Technology,Electronics,80
+88,Pranav Rao,17,Male,58.63,90.84,29.13,Computer Science,61.19,Yes,Dadasaheb Mokashi College of Food Technology,Civil,67
+89,Vishal Patil,18,Male,53.06,73.21,44.31,Mechanical,58.06,Yes,Other,General,66
+90,Dev Wagh,21,Male,87.7,53.32,61.81,MBA,64.89,Yes,Dadasaheb Mokashi College of Food Technology,Civil,67
+91,Vishal Jadhav,19,Male,75.71,43.55,96.81,Computer Science,70.23,Yes,Arvind Gavali College of Engineering,Electronics,71
+92,Rahul Shah,22,Male,49.38,54.15,64.16,Electronics,56.46,Yes,Other,General,66
+93,Raj Wagh,20,Male,60.73,53.66,76.56,MBA,63.44,Yes,Yashoda Technical Campus,Computer Science,69
+94,Ananya Naik,22,Female,88.41,51.67,29.18,Mechanical,52.98,Yes,Other,General,66
+95,Ananya Kulkarni,17,Female,48.22,86.77,67.6,Civil,70.42,Yes,"PVPIT, Tasgaon",Artificial Intelligence and Machine Learning,74
+96,Suraj Deshpande,19,Male,72.03,69.13,26.44,Artificial Intelligence and Machine Learning,54.91,Yes,Other,General,66
+97,Sonal Pawar,21,Female,58.52,45.39,96.95,Artificial Intelligence and Machine Learning,66.72,Yes,Dadasaheb Mokashi College of Food Technology,Mechanical,68
+98,Pallavi Rao,20,Female,73.02,66.09,42.25,Biotechnology,59.48,Yes,Other,General,66
+99,Swati Desai,20,Female,63.79,59.67,73.61,Electronics,65.58,Yes,Dadasaheb Mokashi College of Food Technology,Mechanical,68
+100,Mohit Gupta,22,Male,96.04,88.0,64.01,MBA,81.61,Yes,Shivaji University Kolhapur,Computer Science,88
+101,Pranav Joshi,20,Male,91.71,88.67,20.09,General,65.43,Yes,Dadasaheb Mokashi College of Food Technology,Civil,67
+102,Rahul Salunke,19,Male,78.62,69.41,55.36,Artificial Intelligence and Machine Learning,66.79,Yes,Yashoda Technical Campus,General,64
+103,Siddharth Gupta,20,Male,92.57,68.6,22.31,Mechanical,58.39,Yes,Other,General,66
+104,Riya Bhosale,17,Female,74.82,45.5,99.38,Computer Science,71.69,Yes,"PVPIT, Tasgaon",Artificial Intelligence and Machine Learning,74
+105,Shruti Kulkarni,20,Female,95.36,57.22,76.43,Biotechnology,73.48,Yes,"PVPIT, Tasgaon",Artificial Intelligence and Machine Learning,74
+106,Pooja Gaikwad,21,Other,52.81,51.25,67.95,Electronics,57.48,Yes,Other,General,66
+107,Ananya Jadhav,19,Female,95.45,69.96,85.64,Civil,81.82,Yes,D Y Patil College of Engineering and Technology,Electronics,81
+108,Vishal Naik,22,Male,71.44,48.77,63.09,IT,59.45,Yes,Other,General,66
+109,Ankit Deshpande,20,Male,95.37,91.31,98.46,Mechanical,94.83,Yes,COEP Pune,Mechanical,93
+110,Dev Patil,19,Male,85.21,81.61,84.91,Biotechnology,83.66,Yes,D Y Patil College of Engineering and Technology,Computer Science,82
+111,Shruti Kulkarni,20,Female,97.1,47.45,97.23,IT,77.29,Yes,"AITRC, Vita",Artificial Intelligence and Machine Learning,79
+112,Divya Joshi,21,Female,94.16,40.91,31.53,Electronics,50.94,Yes,Other,General,66
+113,Amit Pawar,21,Male,82.41,78.34,88.14,General,82.79,Yes,Rajarambapu Institute of Technology,Artificial Intelligence and Machine Learning,85
+114,Shruti More,21,Female,46.94,44.04,70.49,Civil,54.02,Yes,Other,General,66
+115,Sonal Desai,20,Other,97.83,84.86,76.31,Computer Science,85.11,Yes,Rajarambapu Institute of Technology,Electronics,80
+116,Suraj Sharma,17,Male,62.52,43.31,48.68,Biotechnology,49.99,No,Not Eligible,Biotechnology,0
+117,Tejas Jadhav,21,Male,81.82,50.62,34.01,Biotechnology,52.61,Yes,Other,General,66
+118,Pooja More,21,Female,52.73,67.21,40.32,Civil,54.18,Yes,Other,General,66
+119,Divya Gupta,22,Female,74.52,44.36,95.62,Civil,69.84,Yes,Dadasaheb Mokashi College of Food Technology,Civil,67
+120,Divya Gupta,18,Female,98.97,90.35,28.53,Biotechnology,70.87,Yes,Annasaheb Dange College of Engineering and Technology,Computer Science,73
+121,Suraj Gupta,17,Male,97.81,78.84,41.96,Artificial Intelligence and Machine Learning,70.67,Yes,Annasaheb Dange College of Engineering and Technology,Computer Science,73
+122,Riya Mehta,21,Female,88.3,52.92,35.21,Civil,55.57,Yes,Other,General,66
+123,Sonal Kulkarni,22,Female,50.25,77.02,23.15,MBA,51.47,Yes,Other,General,66
+124,Yash Kulkarni,17,Male,94.12,59.28,53.24,Mechanical,65.88,Yes,Yashoda Technical Campus,General,64
+125,Sakshi Salunke,21,Female,94.33,89.0,40.56,MBA,73.38,Yes,Arvind Gavali College of Engineering,Electronics,71
+126,Pranav Joshi,20,Male,97.0,48.3,97.32,Biotechnology,77.63,Yes,Arvind Gavali College of Engineering,Electronics,71
+127,Pranali Deshpande,17,Female,59.28,47.29,49.49,Civil,51.06,Yes,Other,General,66
+128,Shruti Shinde,17,Female,81.44,67.82,69.56,General,71.83,Yes,Ashokrao Mane Group of Institutions,Computer Science,75
+129,Pooja Desai,22,Female,89.49,93.65,44.18,Biotechnology,75.3,Yes,"AITRC, Vita",Artificial Intelligence and Machine Learning,79
+130,Rohan Gupta,20,Male,51.27,53.85,63.0,Biotechnology,56.41,Yes,Other,General,66
+131,Ankit Jadhav,21,Male,85.08,49.12,53.19,Computer Science,59.53,Yes,Other,General,66
+132,Tanvi Jadhav,19,Female,46.77,61.86,55.47,Mechanical,55.85,Yes,Other,General,66
+133,Rajani Shinde,21,Female,93.69,78.04,24.84,Civil,63.33,Yes,Yashoda Technical Campus,General,64
+134,Divya Desai,22,Female,56.45,77.73,97.69,Artificial Intelligence and Machine Learning,79.4,Yes,Arvind Gavali College of Engineering,Electronics,71
+135,Siddharth Naik,18,Male,48.7,85.14,36.57,Mechanical,59.03,Yes,Other,General,66
+136,Pooja Pawar,18,Female,87.59,75.16,42.18,Electronics,66.72,Yes,Yashoda Technical Campus,General,64
+137,Karan Joshi,22,Male,91.79,47.78,48.66,Mechanical,59.09,Yes,Other,General,66
+138,Kalyani Rao,19,Female,47.83,83.76,62.09,Computer Science,67.19,Yes,Dadasaheb Mokashi College of Food Technology,Civil,67
+139,Yash Salunke,21,Male,50.89,69.73,95.63,Artificial Intelligence and Machine Learning,74.09,Yes,Arvind Gavali College of Engineering,Computer Science,72
+140,Aditi Salunke,19,Female,69.73,96.88,24.87,MBA,64.89,Yes,Dadasaheb Mokashi College of Food Technology,Civil,67
+141,Vivek More,22,Male,94.12,44.34,26.46,Electronics,50.53,Yes,Other,General,66
+142,Amit Wagh,22,Male,76.61,82.02,50.47,General,69.62,Yes,Dadasaheb Mokashi College of Food Technology,Mechanical,68
+143,Gaurav Jadhav,17,Male,87.83,46.75,72.38,General,65.99,Yes,Yashoda Technical Campus,General,64
+144,Nikhil Jadhav,19,Male,89.68,63.53,78.37,IT,75.26,Yes,Ashokrao Mane Group of Institutions,Artificial Intelligence and Machine Learning,74
+145,Amit Shinde,18,Male,82.09,67.98,27.3,Computer Science,57.27,Yes,Other,General,66
+146,Vivek Shinde,18,Male,75.04,74.6,64.93,IT,71.33,Yes,Annasaheb Dange College of Engineering and Technology,Electronics,72
+147,Yash Jadhav,22,Male,47.78,56.97,45.0,Computer Science,50.48,Yes,Other,General,66
+148,Sneha Kulkarni,22,Female,71.04,89.99,48.01,General,70.56,Yes,Ashokrao Mane Group of Institutions,Computer Science,75
+149,Amit Naik,18,Male,88.59,89.86,97.96,General,92.38,Yes,IIT Bombay,Artificial Intelligence and Machine Learning,98
+150,Aditi Shah,17,Female,54.74,81.46,44.72,IT,61.92,Yes,Dadasaheb Mokashi College of Food Technology,Mechanical,68
+151,Siddharth Naik,22,Male,66.64,48.37,70.65,Artificial Intelligence and Machine Learning,60.74,Yes,Yashoda Technical Campus,Computer Science,69
+152,Sneha Deshpande,20,Female,69.5,49.29,44.93,IT,52.82,Yes,Other,General,66
+153,Meera Wagh,17,Female,92.7,49.18,80.35,Artificial Intelligence and Machine Learning,70.97,Yes,Annasaheb Dange College of Engineering and Technology,Electronics,72
+154,Raj Jadhav,20,Male,77.78,64.44,37.25,General,58.26,Yes,Other,General,66
+155,Dev Joshi,19,Male,81.62,74.99,62.15,Civil,72.15,Yes,Walchand Sangli,Electronics,78
+156,Gaurav Patil,17,Male,56.04,95.77,81.39,Civil,80.8,Yes,Walchand Sangli,IT,85
+157,Aarav More,22,Male,68.26,47.62,62.61,Mechanical,58.03,Yes,Other,General,66
+158,Yash Desai,20,Male,91.54,42.5,21.5,Computer Science,47.41,No,Not Eligible,Computer Science,0
+159,Meera Jadhav,21,Female,66.84,77.77,43.16,Biotechnology,62.92,Yes,Yashoda Technical Campus,Computer Science,69
+160,Priya Wagh,20,Female,89.93,94.27,27.05,Computer Science,69.66,Yes,Yashoda Technical Campus,General,64
+161,Akash Salunke,17,Male,66.37,58.31,47.16,IT,56.42,Yes,Other,General,66
+162,Pranali Salunke,22,Female,51.16,70.09,92.47,IT,73.19,Yes,Ashokrao Mane Group of Institutions,Computer Science,75
+163,Shruti Kulkarni,18,Female,50.55,55.1,33.88,Electronics,46.54,No,Not Eligible,Electronics,0
+164,Shruti Desai,18,Female,96.37,77.05,57.12,MBA,74.9,Yes,Annasaheb Dange College of Engineering and Technology,Electronics,72
+165,Meera Wagh,19,Female,91.67,77.01,32.08,Computer Science,64.95,Yes,Dadasaheb Mokashi College of Food Technology,Civil,67
+166,Suraj Shah,21,Male,48.03,69.93,44.83,MBA,55.67,Yes,Other,General,66
+167,Yash Gupta,17,Male,79.81,97.66,27.22,General,68.54,Yes,Dadasaheb Mokashi College of Food Technology,Civil,67
+168,Ankit Patil,20,Male,94.09,73.73,35.06,MBA,65.29,Yes,Other,General,66
+169,Rohan Gaikwad,17,Male,88.79,89.41,98.59,Computer Science,92.47,Yes,COEP Pune,Mechanical,93
+170,Sanjana Mehta,22,Female,68.64,65.93,61.82,Electronics,65.17,Yes,Dadasaheb Mokashi College of Food Technology,Mechanical,68
+171,Suraj Deshpande,20,Male,86.82,80.05,24.19,IT,62.19,Yes,Yashoda Technical Campus,Computer Science,69
+172,Ankit Deshpande,19,Male,58.61,90.24,97.15,Electronics,84.75,Yes,Rajarambapu Institute of Technology,Computer Science,86
+173,Siddharth Shinde,19,Male,97.26,81.21,51.36,Computer Science,74.78,Yes,Bharati Vidyapeeth's College of Engineering,Mechanical,77
+174,Shruti Pawar,18,Female,81.19,88.91,79.1,General,83.55,Yes,Shivaji University Kolhapur,Computer Science,88
+175,Ishita Salunke,19,Female,45.98,58.22,96.09,IT,68.41,Yes,Dadasaheb Mokashi College of Food Technology,Civil,67
+176,Siddharth Kulkarni,17,Male,60.97,86.5,60.62,General,71.06,Yes,Arvind Gavali College of Engineering,Computer Science,72
+177,Sanjana Pawar,21,Female,52.08,62.23,32.98,Electronics,49.45,No,Not Eligible,Electronics,0
+178,Sanjana Jadhav,19,Female,81.52,54.01,55.54,Civil,61.42,Yes,Dadasaheb Mokashi College of Food Technology,Civil,67
+179,Nikhil Gupta,20,Male,93.81,51.45,74.26,MBA,70.02,Yes,"PVPIT, Tasgaon",Artificial Intelligence and Machine Learning,74
+180,Pallavi Deshpande,21,Female,73.48,97.01,85.35,Electronics,87.05,Yes,D.K.T.E. Society's Textile and Engineering Institute,Mechanical,80
+181,Mohit Shinde,21,Male,95.45,81.97,61.27,Computer Science,78.1,Yes,Bharati Vidyapeeth's College of Engineering,Mechanical,77
+182,Karan Shah,20,Male,93.89,48.69,55.0,Mechanical,62.2,Yes,Dadasaheb Mokashi College of Food Technology,Civil,67
+183,Kalyani Jadhav,17,Female,66.41,62.06,50.89,Computer Science,59.24,Yes,Other,General,66
+184,Aarav Pawar,17,Male,90.32,78.35,83.31,Electronics,83.08,Yes,PICT Pune,IT,89
+185,Mohit Kulkarni,22,Male,70.33,76.31,92.47,Artificial Intelligence and Machine Learning,80.47,Yes,Walchand Sangli,IT,85
+186,Siddharth Bhosale,22,Male,77.88,64.97,82.09,Mechanical,74.19,Yes,Bharati Vidyapeeth's College of Engineering,Mechanical,77
+187,Nikhil Jadhav,22,Male,87.87,66.97,28.87,MBA,58.86,Yes,Other,General,66
+188,Kalyani Salunke,21,Female,58.06,48.47,54.34,IT,52.92,Yes,Other,General,66
+189,Dev Rao,22,Male,81.08,70.89,48.85,General,65.72,Yes,Other,General,66
+190,Tejas Bhosale,17,Male,66.08,67.74,70.85,IT,68.41,Yes,Dadasaheb Mokashi College of Food Technology,Mechanical,68
+191,Sakshi Desai,19,Female,58.02,78.77,28.29,IT,55.91,Yes,Other,General,66
+192,Yash Bhosale,19,Male,88.93,50.33,82.33,MBA,71.18,Yes,Arvind Gavali College of Engineering,Computer Science,72
+193,Karan Kulkarni,17,Male,83.67,95.67,22.96,Mechanical,67.22,Yes,Yashoda Technical Campus,Computer Science,69
+194,Sanjana Pawar,19,Female,72.83,98.36,63.44,Civil,79.76,Yes,Walchand Sangli,Electronics,78
+195,Sneha Gupta,19,Female,91.56,42.82,72.46,Civil,65.38,Yes,Yashoda Technical Campus,Computer Science,69
+196,Ishita Deshpande,22,Female,68.75,96.43,47.12,Electronics,72.25,Yes,"PVPIT, Tasgaon",Artificial Intelligence and Machine Learning,74
+197,Sakshi Salunke,19,Female,88.26,82.9,26.31,Electronics,64.43,Yes,Other,General,66
+198,Vivek Desai,19,Male,80.69,58.08,68.21,Biotechnology,67.28,Yes,Yashoda Technical Campus,General,64
+199,Sakshi Gaikwad,17,Female,84.25,93.78,69.19,Biotechnology,82.79,Yes,Walchand Sangli,IT,85
+200,Sanjana Desai,22,Female,79.43,61.44,84.09,Electronics,73.87,Yes,Walchand Sangli,Electronics,78
