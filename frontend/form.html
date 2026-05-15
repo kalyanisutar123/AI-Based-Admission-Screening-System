@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admission Form — AdmitIQ</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .form-wrapper  { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem 4rem; }
+
+    .form-card         { background: var(--bg-card); border: 1px solid var(--border);
+                         border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
+    .form-card-header  { background: linear-gradient(135deg, var(--primary), #a78bfa);
+                         color: #fff; padding: 2rem; }
+    .form-card-header h2 { margin-bottom: .4rem; }
+    .form-card-header p  { opacity: .85; font-size: .95rem; }
+
+    .form-body        { padding: 2rem; }
+
+    .section-divider {
+      font-size: .8rem; font-weight: 700; color: var(--primary);
+      margin: 1.75rem 0 1rem; padding-bottom: .6rem;
+      border-bottom: 1px solid var(--border);
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+
+    .gender-group { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .gender-group label {
+      display: flex; align-items: center; gap: .4rem;
+      cursor: pointer; font-size: .95rem;
+    }
+
+    input[type="range"] { width: 100%; margin-top: .5rem; accent-color: var(--primary); }
+
+    .score-preview {
+      background: var(--primary-light);
+      border: 1px solid var(--border-focus);
+      padding: 1.2rem 1.4rem;
+      border-radius: var(--radius-sm);
+      margin-top: 1.25rem;
+      display: none;
+    }
+    .score-preview.show { display: block; }
+    .score-val { font-size: 2rem; font-weight: 800; color: var(--primary); }
+
+    .seat-box {
+      background: var(--bg-input); border: 1px solid var(--border);
+      padding: 1.25rem; border-radius: var(--radius-sm);
+      margin-top: 1.25rem; display: none;
+    }
+    .seat-box h3 { margin-bottom: .75rem; color: var(--primary); font-size: .95rem; }
+
+    .form-footer {
+      padding: 1.5rem 2rem;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+      background: var(--bg-input);
+    }
+
+    .submit-error {
+      width: 100%;
+      padding: .85rem 1rem;
+      border-radius: var(--radius-sm);
+      background: var(--danger-bg);
+      color: var(--danger);
+      border: 1px solid currentColor;
+      font-size: .9rem;
+      display: none;
+    }
+    .submit-error.show { display: block; }
+  </style>
+</head>
+
+<body>
+
+<nav class="navbar" id="main-navbar"></nav>
+
+<div class="form-wrapper">
+  <div class="form-card">
+
+    <div class="form-card-header">
+      <h2>🎓 College Admission Application</h2>
+      <p>Fill in your details for an AI-powered eligibility prediction</p>
+    </div>
+
+    <!-- FIX: real submit handler; no alert() -->
+    <form id="admission-form" onsubmit="submitForm(event)" novalidate>
+
+      <div class="form-body">
+
+        <!-- ── Personal Information ── -->
+        <div class="section-divider">Personal Information</div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" id="f-name" class="form-control"
+                   placeholder="Enter full name" required>
+            <span class="form-error" id="err-name"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Age *</label>
+            <input type="number" id="f-age" class="form-control"
+                   placeholder="Enter age" min="15" max="30" required>
+            <span class="form-error" id="err-age"></span>
+          </div>
+        </div>
+
+        <div class="form-group mt-2">
+          <label class="form-label">Gender *</label>
+          <div class="gender-group">
+            <label><input type="radio" name="gender" value="Male"   checked> Male</label>
+            <label><input type="radio" name="gender" value="Female">         Female</label>
+            <label><input type="radio" name="gender" value="Other">          Other</label>
+          </div>
+        </div>
+        <!-- Category / Caste -->
+        <div class="form-group mt-2">
+          <label class="form-label">Category / Caste *</label>
+
+          <select id="f-category"
+              class="form-control"
+              onchange="showSeatAllocation()"
+              required>
+
+          <option value="">Select Category</option>
+
+           <option value="OPEN">OPEN</option>
+           <option value="OBC">OBC</option>
+           <option value="SC">SC</option>
+           <option value="ST">ST</option>
+           <option value="EWS">EWS</option>
+           <option value="NT">NT</option>
+           <option value="VJ">VJ</option>
+           <option value="SBC">SBC</option>
+
+          </select>
+
+          <span class="form-error" id="err-category"></span>
+        </div>
+
+        <!-- ── Academic Details ── -->
+        <div class="section-divider">Academic Details</div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">10th Percentage *</label>
+            <input type="number" id="f-marks10" class="form-control"
+                   placeholder="e.g. 85.5" min="0" max="100" step="0.01"
+                   oninput="calcPreview()" required>
+            <span class="form-error" id="err-marks10"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label">12th Percentage *</label>
+            <input type="number" id="f-marks12" class="form-control"
+                   placeholder="e.g. 78.0" min="0" max="100" step="0.01"
+                   oninput="calcPreview()" required>
+            <span class="form-error" id="err-marks12"></span>
+          </div>
+        </div>
+
+        <!-- ── Entrance Exam ── -->
+        <div class="section-divider">Entrance Exam</div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label">Exam Type *</label>
+            <select id="f-exam" class="form-control" required>
+              <option value="">Select Exam</option>
+              <option value="CET">MHT-CET</option>
+              <option value="JEE">JEE</option>
+            </select>
+            <span class="form-error" id="err-exam"></span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              Entrance Score &nbsp;
+              <span id="entrance-display" style="color:var(--primary);font-weight:700">50</span>
+            </label>
+            <input type="range" id="f-range" min="0" max="100" value="50"
+                   oninput="syncScore(this.value)">
+            <input type="number" id="f-score" class="form-control mt-1"
+                   value="50" min="0" max="100" step="0.01"
+                   oninput="syncInput(this.value)" required>
+            <span class="form-error" id="err-score"></span>
+          </div>
+        </div>
+
+        <!-- Live composite preview -->
+        <div class="score-preview" id="score-preview">
+          <div style="font-size:.85rem;color:var(--primary);font-weight:600;margin-bottom:.25rem">
+            Estimated Composite Score
+          </div>
+          <div class="score-val" id="preview-score">0</div>
+          <div class="progress-bar" style="margin-top:.6rem">
+            <div class="progress-fill" id="preview-bar" style="width:0%"></div>
+          </div>
+          <div class="mt-1" id="preview-label" style="font-size:.85rem;color:var(--text-muted)"></div>
+        </div>
+
+        <!-- ── Course Preference ── -->
+        <div class="section-divider">Course Preference</div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label" for="f-course">Preferred Course *</label>
+            <select id="f-course" class="form-control" onchange="showSeatAllocation()" required>
+              <option value="">Select Course</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Artificial Intelligence and Machine Learning">AI & Machine Learning</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Mechanical">Mechanical</option>
+              <option value="Civil">Civil</option>
+              <option value="IT">IT</option>
+              <option value="Biotechnology">Biotechnology</option>
+              <option value="MBA">MBA</option>
+            </select>
+            <span class="form-error" id="err-course"></span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Preferred College</label>
+            <select id="f-college" class="form-control" onchange="showSeatAllocation()">
+              <option value="">Select College </option>
+              <option value="IIT Bombay">IIT Bombay</option>
+              <option value="COEP Pune">COEP Pune</option>
+              <option value="PICT Pune">PICT Pune</option>
+              <option value="Shivaji University Kolhapur">Shivaji University Kolhapur</option>
+              <option value="Walchand College of Engineering, Sangli">Walchand College of Engineering, Sangli</option>
+              <option value="Rajarambapu Institute of Technology">Rajarambapu Institute of Technology</option>
+              <option value="KIT College of Engineering, Kolhapur">KIT College of Engineering, Kolhapur</option>
+              <option value="D Y Patil College of Engineering and Technology">DY Patil College of Engg &amp; Tech</option>
+              <option value="D.K.T.E. Society's Textile and Engineering Institute">DKTE Textile &amp; Engg Institute</option>
+              <option value="AITRC, Vita">AITRC, Vita</option>
+              <option value="Bharati Vidyapeeth's College of Engineering">Bharati Vidyapeeth's College of Engg</option>
+              <option value="Ashokrao Mane Group of Institutions">Ashokrao Mane Group of Institutions</option>
+              <option value="PVPIT, Tasgaon">PVPIT, Tasgaon</option>
+              <option value="Annasaheb Dange College of Engineering and Technology">Annasaheb Dange COET</option>
+              <option value="Arvind Gavali College of Engineering">Arvind Gavali College of Engineering</option>
+              <option value="Yashoda Technical Campus">Yashoda Technical Campus</option>
+              <option value="Dadasaheb Mokashi College of Food Technology">Dadasaheb Mokashi College</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Seat allocation table -->
+        <div class="seat-box" id="seat-box">
+          <h3>Category-wise Seat Allocation</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr><th>Category</th><th>Seats</th></tr>
+              </thead>
+              <tbody id="seat-data"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div><!-- /form-body -->
+
+      <div class="form-footer">
+        <div><span style="color:var(--danger)">*</span> Required fields</div>
+        <div class="submit-error" id="submit-error"></div>
+        <div style="display:flex;gap:.75rem">
+          <button type="reset" class="btn btn-ghost" onclick="resetForm()">Reset</button>
+          <button type="submit" class="btn btn-primary" id="submit-btn">
+            🔍 Predict Eligibility
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<footer>
+  <strong>AdmitIQ</strong> — AI-Based College Admission Screening System
+</footer>
+
+<script src="app.js"></script>
+<script>
+// ── Slider / number sync ──────────────────────────────────────────────────────
+function syncScore(val) {
+  document.getElementById("f-score").value = val;
+  document.getElementById("entrance-display").textContent = val;
+  calcPreview();
+}
+
+function syncInput(val) {
+  val = Math.max(0, Math.min(100, parseFloat(val) || 0));
+  document.getElementById("f-range").value = val;
+  document.getElementById("f-score").value = val;
+  document.getElementById("entrance-display").textContent = val;
+  calcPreview();
+}
+
+// ── Live composite score preview ──────────────────────────────────────────────
+function calcPreview() {
+  const m10   = parseFloat(document.getElementById("f-marks10").value) || 0;
+  const m12   = parseFloat(document.getElementById("f-marks12").value) || 0;
+  const score = parseFloat(document.getElementById("f-score").value)   || 0;
+
+  if (m10 > 0 && m12 > 0) {
+    const finalScore = ((m10 * 0.25) + (m12 * 0.40) + (score * 0.35)).toFixed(2);
+    document.getElementById("score-preview").classList.add("show");
+    document.getElementById("preview-score").textContent = finalScore;
+    document.getElementById("preview-bar").style.width   = Math.min(finalScore, 100) + "%";
+
+    const label =
+      finalScore >= 85 ? "🟢 Excellent — High Admission Chances" :
+      finalScore >= 75 ? "🟡 Good — Moderate Chances"           :
+      finalScore >= 60 ? "🟠 Average — Possible Admission"      :
+                         "🔴 Low Score — Improve Entrance Score";
+    document.getElementById("preview-label").textContent = label;
+  }
+}
+
+// ── Seat allocation table ─────────────────────────────────────────────────────
+const seatAllocation = {
+  "IIT Bombay":                  { "Computer Science":{OPEN:80,EWS:20,OBC:45,SC:25,ST:12}, "Civil":{OPEN:45,EWS:12,OBC:25,SC:15,ST:8}, "Mechanical":{OPEN:70,EWS:18,OBC:40,SC:22,ST:12}, "Artificial Intelligence and Machine Learning":{OPEN:50,EWS:15,OBC:30,SC:18,ST:8} },
+  "COEP Pune":                   { "Computer Science":{OPEN:60,EWS:15,OBC:35,SC:20,ST:10}, "Civil":{OPEN:20,EWS:10,OBC:25,SC:20,ST:6},  "Mechanical":{OPEN:40,EWS:10,OBC:30,SC:10,ST:10},"Artificial Intelligence and Machine Learning":{OPEN:40,EWS:10,OBC:20,SC:10,ST:5} },
+  "PICT Pune":                   { "Computer Science":{OPEN:55,EWS:15,OBC:30,SC:18,ST:8},  "IT":{OPEN:45,EWS:12,OBC:24,SC:14,ST:6},    "Artificial Intelligence and Machine Learning":{OPEN:45,EWS:12,OBC:25,SC:15,ST:6} },
+  "Shivaji University Kolhapur": { "Computer Science":{OPEN:35,EWS:10,OBC:18,SC:10,ST:5},  "Civil":{OPEN:25,EWS:6,OBC:12,SC:8,ST:4},   "Mechanical":{OPEN:32,EWS:8,OBC:16,SC:10,ST:5} },
+  "Walchand College of Engineering, Sangli": { "Computer Science":{OPEN:40,EWS:10,OBC:20,SC:12,ST:6},  "Civil":{OPEN:30,EWS:8,OBC:15,SC:10,ST:5},  "Mechanical":{OPEN:35,EWS:9,OBC:18,SC:12,ST:6} },
+  "Rajarambapu Institute of Technology": { "Computer Science":{OPEN:30,EWS:8,OBC:15,SC:10,ST:5},  "Civil":{OPEN:25,EWS:6,OBC:12,SC:8,ST:4},   "Mechanical":{OPEN:28,EWS:7,OBC:16,SC:10,ST:5} },
+  "KIT College of Engineering, Kolhapur": { "Computer Science":{OPEN:25,EWS:6,OBC:12,SC:8,ST:4},   "Civil":{OPEN:20,EWS:5,OBC:10,SC:6,ST:3},   "Mechanical":{OPEN:22,EWS:5,OBC:14,SC:8,ST:4} },
+  "D Y Patil College of Engineering and Technology": { "Computer Science":{OPEN:20,EWS:5,OBC:10,SC:8,ST:4},   "Civil":{OPEN:15,EWS:4,OBC:8,SC:6,ST:3},    "Mechanical":{OPEN:18,EWS:4,OBC:12,SC:8,ST:4} },
+  "D.K.T.E. Society's Textile and Engineering Institute": { "Computer Science":{OPEN:18,EWS:4,OBC:8,SC:6,ST:3},    "Civil":{OPEN:12,EWS:3,OBC:6,SC:4,ST:2},     "Mechanical":{OPEN:15,EWS:3,OBC:10,SC:6,ST:3} },
+  "AITRC, Vita":                 { "Computer Science":{OPEN:15,EWS:3,OBC:6,SC:4,ST:2},     "Civil":{OPEN:10,EWS:2,OBC:4,SC:3,ST:1},     "Mechanical":{OPEN:12,EWS:2,OBC:8,SC:4,ST:3} },
+  "Bharati Vidyapeeth's College of Engineering": { "Computer Science":{OPEN:25,EWS:6,OBC:12,SC:8,ST:4},   "Civil":{OPEN:18,EWS:4,OBC:8,SC:6,ST:3},    "Mechanical":{OPEN:20,EWS:5,OBC:10,SC:8,ST:4} },
+  "Ashokrao Mane Group of Institutions": { "Computer Science":{OPEN:10,EWS:2,OBC:4,SC:3,ST:1},     "Civil":{OPEN:8,EWS:2,OBC:3,SC:2,ST:1},      "Mechanical":{OPEN:10,EWS:2,OBC:5,SC:3,ST:2} },
+  "PVPIT, Tasgaon":              { "Computer Science":{OPEN:12,EWS:3,OBC:5,SC:3,ST:2},     "Civil":{OPEN:10,EWS:2,OBC:4,SC:2,ST:1},     "Mechanical":{OPEN:15,EWS:3,OBC:8,SC:4,ST:3} },
+  "Annasaheb Dange College of Engineering and Technology": { "Computer Science":{OPEN:8,EWS:2,OBC:4,SC:3,ST:1},      "Civil":{OPEN:6,EWS:1,OBC:3,SC:2,ST:1},       "Mechanical":{OPEN:10,EWS:2,OBC:5,SC:3,ST:2} },
+  "Arvind Gavali College of Engineering": { "Computer Science":{OPEN:10,EWS:2,OBC:4,SC:3,ST:1},     "Civil":{OPEN:8,EWS:2,OBC:3,SC:2,ST:1},      "Mechanical":{OPEN:12,EWS:3,OBC:6,SC:4,ST:2} },
+  "Yashoda Technical Campus":    { "Computer Science":{OPEN:8,EWS:2,OBC:3,SC:2,ST:1},      "Civil":{OPEN:6,EWS:1,OBC:2,SC:2,ST:1},      "Mechanical":{OPEN:10,EWS:2,OBC:5,SC:3,ST:2} },
+  "Dadasaheb Mokashi College of Food Technology": { "Computer Science":{OPEN:5,EWS:1,OBC:2,SC:1,ST:1},       "Civil":{OPEN:3,EWS:1,OBC:1,SC:1,ST:0},       "Mechanical":{OPEN:5,EWS:1,OBC:3,SC:2,ST:1} },
+  "Other":                       { "Computer Science":{OPEN:30,EWS:8,OBC:15,SC:8,ST:4},    "Civil":{OPEN:20,EWS:5,OBC:10,SC:6,ST:3},   "Mechanical":{OPEN:28,EWS:6,OBC:15,SC:8,ST:4} }
+};
+
+function showSeatAllocation() {
+  const college = document.getElementById("f-college").value;
+  const course  = document.getElementById("f-course").value;
+  const seatBox  = document.getElementById("seat-box");
+  const seatData = document.getElementById("seat-data");
+
+  seatData.innerHTML = "";
+
+  if (college && course && seatAllocation[college] && seatAllocation[college][course]) {
+    const data = seatAllocation[college][course];
+    for (const cat in data) {
+      seatData.innerHTML += `<tr><td>${cat}</td><td>${data[cat]}</td></tr>`;
+    }
+    seatBox.style.display = "block";
+  } else {
+    seatBox.style.display = "none";
+  }
+}
+
+// ── Reset ─────────────────────────────────────────────────────────────────────
+function resetForm() {
+  document.getElementById("score-preview").classList.remove("show");
+  document.getElementById("seat-box").style.display = "none";
+  document.getElementById("entrance-display").textContent = "50";
+  document.getElementById("f-range").value = "50";
+  clearAllErrors();
+}
+
+// ── Form validation ───────────────────────────────────────────────────────────
+function validateForm() {
+  clearAllErrors();
+  let valid = true;
+
+  const name   = document.getElementById("f-name").value.trim();
+  const age    = parseInt(document.getElementById("f-age").value);
+  const m10    = parseFloat(document.getElementById("f-marks10").value);
+  const m12    = parseFloat(document.getElementById("f-marks12").value);
+  const exam   = document.getElementById("f-exam").value;
+  const course = document.getElementById("f-course").value;
+
+  if (!name)                 { showError("err-name",    "Full name is required");       valid = false; }
+  if (!age || age < 15)      { showError("err-age",     "Valid age required (15–30)");  valid = false; }
+  if (isNaN(m10) || m10 < 0 || m10 > 100) { showError("err-marks10", "Enter a valid 10th % (0–100)"); valid = false; }
+  if (isNaN(m12) || m12 < 0 || m12 > 100) { showError("err-marks12", "Enter a valid 12th % (0–100)"); valid = false; }
+  if (!exam)                 { showError("err-exam",    "Select an exam type");          valid = false; }
+  if (!course)               { showError("err-course",  "Select a preferred course");    valid = false; }
+
+  return valid;
+}
+
+// ── FIX: Real submit — calls /api/predict, stores result, redirects ──────────
+async function submitForm(e) {
+  e.preventDefault();
+  if (!validateForm()) return;
+
+  const name           = document.getElementById("f-name").value.trim();
+  const age            = parseInt(document.getElementById("f-age").value);
+  const gender         = document.querySelector('input[name="gender"]:checked').value;
+  const marks_10       = parseFloat(document.getElementById("f-marks10").value);
+  const marks_12       = parseFloat(document.getElementById("f-marks12").value);
+  const entrance_score = parseFloat(document.getElementById("f-score").value);
+  const preferred_course = document.getElementById("f-course").value;
+
+  // Map "AI & Machine Learning" display value back to model value
+  const courseMap = { "AI & Machine Learning": "Artificial Intelligence and Machine Learning" };
+  const apiCourse = courseMap[preferred_course] || preferred_course;
+
+  const btn = document.getElementById("submit-btn");
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner" style="border-top-color:#fff"></span> Predicting…';
+  document.getElementById("submit-error").classList.remove("show");
+
+  try {
+    const data = await apiPost("/predict", {
+      name, age, gender,
+      marks_10, marks_12, entrance_score,
+      preferred_course: apiCourse
+    });
+
+    if (data.success) {
+      // Save full result + input fields so result.html can display them
+      sessionStorage.setItem("prediction_result", JSON.stringify({
+        ...data,
+        admitted: data.prediction === "Eligible",
+        name, age, gender, marks_10, marks_12, entrance_score,
+        preferred_course: apiCourse
+      }));
+      window.location.href = "result.html";
+    } else {
+      const errEl = document.getElementById("submit-error");
+      errEl.textContent = "❌ " + (data.message || "Prediction failed. Please try again.");
+      errEl.classList.add("show");
+    }
+  } catch {
+    const errEl = document.getElementById("submit-error");
+    errEl.textContent = "❌ Server error — make sure the backend is running.";
+    errEl.classList.add("show");
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "🔍 Predict Eligibility";
+  }
+}
+</script>
+</body>
+</html>     

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maharashtra Colleges — AdmitIQ</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .college-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+    .coll-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .coll-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+    .coll-header {
+      display: flex; align-items: flex-start; justify-content: space-between; gap: .5rem;
+      margin-bottom: 1rem;
+    }
+    .coll-name { font-weight: 700; font-size: 1rem; }
+    .coll-city { font-size: .78rem; color: var(--text-muted); margin-top: .15rem; }
+
+    .cutoff-badge {
+      background: linear-gradient(135deg, var(--primary), #a78bfa);
+      color: #fff; border-radius: 8px;
+      padding: .3rem .7rem; font-size: .78rem; font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .course-tags { display: flex; gap: .3rem; flex-wrap: wrap; }
+    .course-tag {
+      background: var(--primary-light); color: var(--primary);
+      border-radius: 99px; padding: .2rem .65rem; font-size: .75rem; font-weight: 500;
+    }
+
+    .filter-bar {
+      display: flex; gap: .75rem; flex-wrap: wrap; align-items: center;
+      margin-bottom: 2rem;
+    }
+    .filter-bar input, .filter-bar select {
+      padding: .6rem 1rem; border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm); background: var(--bg-card);
+      color: var(--text); font-family: 'DM Sans', sans-serif; font-size: .9rem;
+    }
+    .filter-bar input { flex: 1; min-width: 200px; }
+    .filter-bar input:focus, .filter-bar select:focus {
+      outline: none; border-color: var(--primary);
+    }
+
+    .no-results { text-align: center; padding: 3rem; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="main-navbar"></nav>
+
+<div class="container">
+  <div class="page-header">
+    <h1>Maharashtra Engineering Colleges</h1>
+    <p>Browse colleges with AI-updated cutoff scores for 2024-25 admissions</p>
+  </div>
+
+  <div class="filter-bar">
+    <input type="text" id="search-input" placeholder="🔍 Search college name…" oninput="filterColleges()">
+    <select id="cutoff-filter" onchange="filterColleges()">
+      <option value="">All Cutoffs</option>
+      <option value="90">90+ (Top Tier)</option>
+      <option value="80">80+ (Premier)</option>
+      <option value="70">70+ (Good)</option>
+      <option value="60">60+ (Average)</option>
+      <option value="0">Below 60</option>
+    </select>
+    <select id="course-filter" onchange="filterColleges()">
+      <option value="">All Courses</option>
+      <option value="Computer Science">Computer Science</option>
+      <option value="Electronics">Electronics</option>
+      <option value="Mechanical">Mechanical</option>
+      <option value="Civil">Civil</option>
+      <option value="IT">IT</option>
+      <option value="MBA">MBA</option>
+      <option value="Biotechnology">Biotechnology</option>
+    </select>
+  </div>
+
+  <div id="college-grid" class="college-grid">
+    <div class="text-center" style="grid-column:1/-1;padding:3rem">
+      Loading colleges…
+    </div>
+  </div>
+
+  <div class="text-center mt-4 mb-4">
+    <a href="form.html" class="btn btn-primary btn-lg"> Check Your Eligibility Now</a>
+  </div>
+</div>
+
+<footer>
+  <strong>AdmitIQ</strong> — AI-Based College Admission Screening System &nbsp;|&nbsp; Maharashtra, India
+</footer>
+
+<script src="app.js"></script>
+<script>
+let allColleges = [];
+
+// Extended college data with city info
+const collegeDetails = {
+  "IIT Bombay":                  { city: "Mumbai", tier: "IIT / National" },
+  "COEP Pune":                   { city: "Pune", tier: "Government" },
+  "PICT Pune":                 { city: "Pune", tier: "Government" },
+  "Shivaji University Kolhapur":  { city: "Kolhapur", tier: "Government" },
+  "Walchand College of Engineering, Sangli":    { city: "Sangli", tier: "Government" },
+  "Rajarambapu Institute of Technology":    { city: "Kolhapur", tier: "Autonomous" },
+  "KIT College of Engineering, Kolhapur":   { city: "Kolhapur", tier: "Autonomous" },
+  "D Y Patil College of Engineering and Technology": { city: "Pune", tier: "Private" },
+  "D.K.T.E. Society's Textile and Engineering Institute": { city: "Pune", tier: "Private" },
+  "AITRC, Vita":                { city: "Nagpur", tier: "Autonomous" },
+  "Bharati Vidyapeeth's College of Engineering": { city: "Kolhapur", tier: "Government Aided" },
+  "Ashokrao Mane Group of Institutions": { city: "Sangli", tier: "Autonomous" },
+  "PVPIT, Tasgaon":           { city: "Nagpur", tier: "Autonomous" },
+  "Annasaheb Dange College of Engineering and Technology": { city: "Sangli", tier: "Autonomous" },
+  "Arvind Gavali College of Engineering": { city: "Kolhapur", tier: "Private" },
+  "Yashoda Technical Campus":               { city: "Pune", tier: "Private" },
+  "Dadasaheb Mokashi College of Food Technology": { city: "Kolhapur", tier: "Private" },
+  "Other":                       { city: "Maharashtra", tier: "Various" },
+};
+
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const data = await apiGet("/colleges");
+    allColleges = data;
+    renderColleges(data);
+  } catch {
+    // Fallback static data
+    allColleges = [
+      { name: "IIT Bombay",      courses: ["Artificial Intelligence and Machine Learning","Computer Science"], cutoff: 98},
+      { name: "COEP Pune",       courses: ["Computer Science","Artificial Intelligence and Machine Learning","Mechanical"],  cutoff: 96 },
+      { name: "PICT Pune",       courses: ["Computer Science"," Artificial Intelligence and Machine Learning","IT"], cutoff: 91 },
+      { name: "Shivaji University Kolhapur",     courses: ["Computer Science","IT"], cutoff: 88 },
+      { name: "Walchand College of Engineering, Sangli",    courses:["Computer Science","IT","Electronics"],cutoff: 86 },
+      { name: "Rajarambapu Institute of Technology",   courses:["Computer Science","Artificial Intelligence and Machine Learning","Electronics"],cutoff: 86 },
+      { name: "KIT College of Engineering, Kolhapur",  courses: ["Computer Science","IT"],          cutoff: 84 },
+      { name: "D Y Patil College of Engineering and Technology",     courses: ["Computer Science","Electronics"], cutoff: 82 },
+      { name: "D.K.T.E. Society's Textile and Engineering Institute",    courses: ["Computer Science","Mechanical"],  cutoff: 81 },
+      { name: "AITRC, Vita",  courses: ["Computer Science","Artificial Intelligence and Machine Learning"], cutoff: 79},
+      { name: "Bharati Vidyapeeth's College of Engineering", courses: ["Computer Science","Mechanical"],  cutoff: 78 },
+      { name: "Ashokrao Mane Group of Institutions",     courses: ["Computer Science","Artificial Intelligence and Machine Learning"],       cutoff: 75 },
+      { name: "PVPIT, Tasgaon",  courses: ["Artificial Intelligence and Machine Learning","Civil"],             cutoff: 74 },
+      { name: "Annasaheb Dange College of Engineering and Technology",   courses: ["Computer Science","Electronics"],cutoff:73},
+      { name: "Arvind Gavali College of Engineering",courses:["Computer Science","General"],cutoff:72},
+      { name: "Nagpur University",courses:["Computer Science","Civil"],       cutoff: 70 },
+      { name: "Yashoda Technical Campus",courses:["Computer Science","General"],cutoff:69},
+      { name: "Dadasaheb Mokashi College of Food Technology",courses:["Mechanical","Civil"],   cutoff: 68 },
+      { name: "Other",           courses: ["General"],                        cutoff: 66 },
+    ];
+    renderColleges(allColleges);
+  }
+});
+
+function renderColleges(colleges) {
+  const grid = document.getElementById("college-grid");
+  if (!colleges.length) {
+    grid.innerHTML = `<div class="no-results" style="grid-column:1/-1">
+       No colleges match your filters. <button class="btn btn-ghost" onclick="resetFilters()">Clear filters</button>
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = colleges.map(c => {
+    const det = collegeDetails[c.name] || { city: "Maharashtra", tier: "College" };
+    const tierColor = c.cutoff >= 90 ? "#dc2626" :
+                      c.cutoff >= 80 ? "#d97706" :
+                      c.cutoff >= 70 ? "#16a34a" : "#6b7280";
+    return `
+      <div class="coll-card">
+        <div class="coll-header">
+          <div>
+            <div class="coll-name"> ${c.name}</div>
+            <div class="coll-city"> ${det.city} &nbsp;·&nbsp; ${det.tier}</div>
+          </div>
+          <div class="cutoff-badge" style="background:${tierColor}">Cutoff: ${c.cutoff}%</div>
+        </div>
+        <div class="course-tags mb-2">
+          ${c.courses.map(course => `<span class="course-tag">${course}</span>`).join('')}
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:.75rem">
+          <span class="badge ${c.cutoff >= 85 ? 'badge-danger' : c.cutoff >= 70 ? 'badge-accent' : 'badge-success'}">
+            ${c.cutoff >= 85 ? 'Highly Competitive' : c.cutoff >= 70 ? ' Competitive' : 'Accessible'}
+          </span>
+          <a href="form.html" class="btn btn-outline" style="font-size:.78rem;padding:.3rem .7rem">Check Eligibility</a>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function filterColleges() {
+  const search  = document.getElementById("search-input").value.toLowerCase();
+  const cutoff  = document.getElementById("cutoff-filter").value;
+  const course  = document.getElementById("course-filter").value;
+
+  let filtered = allColleges.filter(c => {
+    const nameMatch   = c.name.toLowerCase().includes(search);
+    const courseMatch = !course || c.courses.some(cs => cs.includes(course));
+    let cutoffMatch   = true;
+    if (cutoff === "0")   cutoffMatch = c.cutoff < 60;
+    else if (cutoff)      cutoffMatch = c.cutoff >= parseInt(cutoff);
+    return nameMatch && courseMatch && cutoffMatch;
+  });
+
+  renderColleges(filtered);
+}
+
+function resetFilters() {
+  document.getElementById("search-input").value = "";
+  document.getElementById("cutoff-filter").value = "";
+  document.getElementById("course-filter").value = "";
+  renderColleges(allColleges);
+}
+</script>
+</body>
+</html>

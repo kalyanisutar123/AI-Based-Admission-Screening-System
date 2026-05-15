@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdmitIQ — AI College Admission System</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Hero ────────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, #1a1f3c 0%, #2d1b69 40%, #1a1f3c 100%);
+      color: #fff;
+      padding: 6rem 1.5rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 70% at 50% 0%, rgba(110,142,251,.25) 0%, transparent 70%);
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(110,142,251,.18);
+      border: 1px solid rgba(110,142,251,.35);
+      border-radius: 99px;
+      padding: .35rem 1rem;
+      font-size: .82rem; font-weight: 600; color: #a0b4fc;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      color: #fff;
+      max-width: 820px;
+      margin: 0 auto .9rem;
+    }
+    .hero h1 span {
+      background: linear-gradient(90deg, #6e8efb, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.1rem; color: rgba(255,255,255,.7);
+      max-width: 560px; margin: 0 auto 2.5rem; line-height: 1.7;
+    }
+    .hero-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .hero-actions .btn-hero-outline {
+      background: rgba(255,255,255,.08);
+      border: 1.5px solid rgba(255,255,255,.25);
+      color: #fff;
+      padding: .85rem 2rem;
+      border-radius: var(--radius-sm);
+      font-size: 1rem; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: all .2s;
+    }
+    .hero-actions .btn-hero-outline:hover { background: rgba(255,255,255,.15); }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 3.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat .val {
+      font-family: 'Sora', sans-serif;
+      font-size: 2rem; font-weight: 800; color: #fff;
+    }
+    .hero-stat .lbl { font-size: .82rem; color: rgba(255,255,255,.6); margin-top: .2rem; }
+
+    /* ── Features ────────────────────────────────────────────── */
+    .features { padding: 5rem 0; }
+    .section-title { text-align: center; margin-bottom: 3rem; }
+    .section-title h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+    .section-title p { color: var(--text-muted); margin-top: .5rem; }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .feature-icon {
+      width: 52px; height: 52px;
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 1.2rem;
+    }
+    .feature-card h3 { font-size: 1.1rem; margin-bottom: .5rem; }
+    .feature-card p  { font-size: .9rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── How it works ─────────────────────────────────────────── */
+    .steps { padding: 4rem 0; background: var(--bg-input); }
+    .step-list {
+      display: flex; gap: 0;
+      counter-reset: steps;
+      flex-wrap: wrap; justify-content: center;
+    }
+    .step {
+      flex: 1; min-width: 200px; max-width: 240px;
+      text-align: center; padding: 2rem 1.5rem;
+      position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '→';
+      position: absolute; right: -10px; top: 2.5rem;
+      font-size: 1.4rem; color: var(--border);
+    }
+    .step-num {
+      width: 52px; height: 52px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.1rem;
+      color: #fff; margin: 0 auto 1rem;
+    }
+    .step h4 { font-size: .95rem; margin-bottom: .4rem; }
+    .step p  { font-size: .83rem; color: var(--text-muted); }
+
+    /* ── Colleges preview ─────────────────────────────────────── */
+    .college-chip {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 99px; padding: .4rem 1rem; font-size: .83rem;
+      color: var(--text-muted); margin: .25rem;
+    }
+
+    /* ── CTA ──────────────────────────────────────────────────── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary), #a78bfa);
+      color: #fff; text-align: center;
+      padding: 5rem 1.5rem; border-radius: var(--radius-lg);
+      margin: 0 1.5rem 4rem;
+    }
+    .cta-section h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: #fff; margin-bottom: .8rem; }
+    .cta-section p  { color: rgba(255,255,255,.8); margin-bottom: 2rem; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="main-navbar"></nav>
+
+<!-- ── Hero ──────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-tag"> Powered by Machine Learning</div>
+  <h1>Smart College Admission<br><span>Screening System</span></h1>
+  <p>Get instant AI-powered predictions for your college admission eligibility across top Maharashtra universities — based on your academic profile.</p>
+  <div class="hero-actions">
+    <a href="form.html"     class="btn btn-primary btn-lg"> Check My Eligibility</a>
+    <a href="colleges.html" class="btn-hero-outline"> View Colleges</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="val">30+</div><div class="lbl">Maharashtra Colleges</div></div>
+    <div class="hero-stat"><div class="val">92%</div><div class="lbl">Model Accuracy</div></div>
+    <div class="hero-stat"><div class="val">6</div><div class="lbl">Courses Covered</div></div>
+    <div class="hero-stat"><div class="val">Free</div><div class="lbl">No Hidden Charges</div></div>
+  </div>
+</section>
+
+<!-- ── Features ──────────────────────────────────────────────────── -->
+<section class="features">
+  <div class="container">
+    <div class="section-title">
+      <h2>Why Choose AdmitIQ?</h2>
+      <p>Built specifically for Maharashtra students navigating competitive admissions</p>
+    </div>
+    <div class="grid-3">
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#eef1fe">🤖</div>
+        <h3>AI Prediction Engine</h3>
+        <p>Our Random Forest ML model trained on real admission data gives you accurate eligibility predictions within seconds.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#dcfce7">🏫</div>
+        <h3>Maharashtra College List</h3>
+        <p>Comprehensive database of IIT Bombay, COEP, VJTI, PICT, MIT Pune, and 25+ other top colleges with updated cutoffs.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#fef3c7">📊</div>
+        <h3>Smart Recommendations</h3>
+        <p>Based on your composite score, get a ranked list of colleges you are most likely to be admitted to.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#fce7f3">🔒</div>
+        <h3>Secure Login System</h3>
+        <p>Your data is private. Create an account, save your predictions, and track your admission journey securely.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#e0f2fe">📈</div>
+        <h3>Admin Analytics</h3>
+        <p>Institutional admins get a rich dashboard with charts, trends, and student statistics for better decision-making.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#f3e8ff">⚡</div>
+        <h3>Instant Results</h3>
+        <p>Submit your academic details and get a comprehensive admission report with college matches in under 2 seconds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── How It Works ───────────────────────────────────────────────── -->
+<section class="steps">
+  <div class="container">
+    <div class="section-title"><h2>How It Works</h2></div>
+    <div class="step-list">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Register / Login</h4>
+        <p>Create a free account to save your results</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Fill the Form</h4>
+        <p>Enter your 10th, 12th marks and entrance score</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>AI Processes</h4>
+        <p>Our ML model calculates your composite score</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>Get Results</h4>
+        <p>See eligible colleges and predicted admission</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Top Colleges Preview ───────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Colleges in Our Database</h2>
+      <p>Covering top engineering &amp; management institutes across Maharashtra</p>
+    </div>
+    <div class="text-center">
+      <span class="college-chip"> IIT Bombay</span>
+      <span class="college-chip"> COEP Pune</span>
+      <span class="college-chip"> PICT Pune</span>
+      <span class="college-chip"> Shivaji University Kolhapur</span>
+      <span class="college-chip"> Walchand College of Engineering, Sangli</span>
+      <!-- FIX: removed typo "Rajarambapu Institute of Technologyr" -->
+      <span class="college-chip"> Rajarambapu Institute of Technology</span>
+      <span class="college-chip"> KIT College of Engineering, Kolhapur</span>
+      <span class="college-chip"> DY Patil College of Engineering & Technology</span>
+      <span class="college-chip"> DKTE Textile & Engg Institute</span>
+      <span class="college-chip"> AITRC, Vita</span>
+      <span class="college-chip"> Bharati Vidyapeeth's College of Engineering</span>
+      <span class="college-chip"> Ashokrao Mane Group of Institutions</span>
+      <span class="college-chip"> PVPIT, Tasgaon</span>
+      <span class="college-chip"> Annasaheb Dange College of Engineering & Technology</span>
+      <span class="college-chip"> Arvind Gavali College of Engineering</span>
+      <span class="college-chip"> Yashoda Technical Campus</span>
+      <span class="college-chip"> + More</span>
+    </div>
+    <div class="text-center mt-3">
+      <a href="colleges.html" class="btn btn-outline">View All Colleges & Cutoffs →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ────────────────────────────────────────────────────────── -->
+<div class="container">
+  <div class="cta-section">
+    <h2>Ready to Find Your College?</h2>
+    <p>Join thousands of Maharashtra students who used AdmitIQ to plan their admissions</p>
+    <a href="form.html" class="btn btn-lg" style="background:#fff;color:var(--primary);font-weight:700">
+       Start Your Application
+    </a>
+  </div>
+</div>
+
+<footer>
+  <strong>AdmitIQ</strong> — AI-Based College Admission Screening System &nbsp;|&nbsp;
+  Maharashtra, India &nbsp;|&nbsp; Built with Python, Flask &amp; Machine Learning
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
